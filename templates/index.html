@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text to Speech</title>
+</head>
+<body>
+    <h1>Text to Speech</h1>
+    <form method="POST">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text to convert to speech"></textarea><br><br>
+        <button type="submit">Generate Speech</button><br><br>
+
+        {% if audio_url %}
+            <audio controls>
+                <source src="{{ audio_url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        {% endif %}
+
+        <h2>Teach Pronunciation</h2>
+        <input type="text" name="pronunciation_text" placeholder="Word to pronounce">
+        <input type="text" name="pronunciation_phonetic" placeholder="Phonetic pronunciation"><br><br>
+        <button type="submit">Add Pronunciation</button>
+    </form>
+</body>
+</html>
